@@ -72,6 +72,7 @@
         case 'google': placeholder = 'Google 搜索...'; break;
         case 'baidu': placeholder = '百度搜索...'; break;
         case 'github': placeholder = 'Github 搜索...'; break;
+        case 'perplexity': placeholder = 'Perplexity 搜索...'; break;
       }
 
       searchInputs.forEach(input => {
@@ -161,6 +162,7 @@
               case 'google': url = `https://www.google.com/search?q=${encodeURIComponent(query)}`; break;
               case 'baidu': url = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`; break;
               case 'github': url = `https://github.com/search?q=${encodeURIComponent(query)}`; break;
+              case 'perplexity': url = `https://www.perplexity.ai/search?q=${encodeURIComponent(query)}`; break;
             }
             if (url) window.open(url, '_blank');
           }
