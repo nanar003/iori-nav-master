@@ -708,9 +708,9 @@ html.dark body.custom-wallpaper .site-card.style-3.frosted-glass-effect:hover {
   min-height: 1.5em;
   padding: 0 0.25rem;
   overflow: hidden;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  line-height: 1.05;
+  line-height: 1.15;
   text-align: center;
   text-overflow: ellipsis;
   white-space: normal;
@@ -755,11 +755,6 @@ html.dark .site-card.style-3:not(.frosted-glass-effect) .site-title {
   .site-card.style-3 {
     min-height: 100px;
     height: 100px !important;
-  }
-
-  .site-card.style-3 {
-    min-height: 82px;
-    height: 82px !important;
   }
 }
 

@@ -69,7 +69,7 @@ export function buildCardTemplateConfig(settings = {}, device = 'desktop') {
       : 'site-card group h-full flex flex-col bg-white border border-primary-100/60 shadow-sm overflow-hidden dark:bg-gray-800 dark:border-gray-700',
     frostedClass: enableFrostedGlass ? 'frosted-glass-effect' : '',
     cardStyleClass: cardStyle === 'style2' ? 'style-2' : (isNavigationTileStyle ? 'style-3' : ''),
-    titleClass: 'site-title text-base font-medium text-gray-900 dark:text-gray-100 truncate transition-all duration-300 origin-left',
+    titleClass: `site-title text-base font-medium text-gray-900 dark:text-gray-100 transition-all duration-300 origin-left${isNavigationTileStyle ? '' : ' truncate'}`,
     descClass: 'mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2',
     categoryClass: 'site-category inline-flex items-center px-2 py-0.5 mt-1 rounded-full text-xs font-medium bg-secondary-100 text-primary-700 dark:bg-secondary-800 dark:text-primary-300',
     linkRowClass: 'mt-3 flex items-center justify-between',
@@ -77,7 +77,9 @@ export function buildCardTemplateConfig(settings = {}, device = 'desktop') {
     copyButtonBaseClass: 'copy-btn relative flex items-center px-2 py-1 rounded-full text-xs font-medium transition-colors',
     copyButtonEnabledClass: 'bg-accent-100 text-accent-700 hover:bg-accent-200 dark:bg-accent-900/30 dark:text-accent-300 dark:hover:bg-accent-900/50',
     copyButtonDisabledClass: 'bg-gray-200 text-gray-400 cursor-not-allowed dark:bg-gray-700 dark:text-gray-500',
-    logoClass: 'w-10 h-10 rounded-lg object-cover bg-gray-100 dark:bg-gray-700',
+    logoClass: isNavigationTileStyle
+      ? 'w-10 h-10 object-contain'
+      : 'w-10 h-10 rounded-lg object-cover bg-gray-100 dark:bg-gray-700',
     siteIconClass: 'site-icon flex-shrink-0 mr-4 transition-all duration-300',
   };
 }
