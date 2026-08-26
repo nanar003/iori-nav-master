@@ -9,25 +9,6 @@
   display: none;
 }
 
-/* 550px 断点布局：移动版和桌面版头部只显示一套 */
-.home-mobile-header {
-  display: block;
-}
-
-.home-desktop-header {
-  display: none;
-}
-
-@media (min-width: 550px) {
-  .home-mobile-header {
-    display: none !important;
-  }
-
-  .home-desktop-header {
-    display: block !important;
-  }
-}
-
 /* 粘性页脚：内容不足一屏时推到底部，内容较多时自然跟随文档流 */
 #app-scroll > .main-content {
   display: flex;
@@ -324,27 +305,6 @@ header {
 
 .theme-action-icon:hover {
   color: #d97706;
-}
-
-#themeToggleBtn[data-theme="light"] #themeIconSun {
-  display: block;
-}
-
-#themeToggleBtn[data-theme="light"] #themeIconMoon,
-#themeToggleBtn[data-theme="dark"] #themeIconSun {
-  display: none;
-}
-
-#themeToggleBtn[data-theme="dark"] #themeIconMoon {
-  display: block;
-}
-
-#themeToggleBtn[data-theme="light"] {
-  color: #fbbf24;
-}
-
-#themeToggleBtn[data-theme="dark"] {
-  color: #bfdbfe;
 }
 
 .admin-action-icon:hover {

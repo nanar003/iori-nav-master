@@ -374,8 +374,8 @@ export async function onRequest(context) {
     }
 
     headerContent = `
-      <div class="home-mobile-header">${verticalHeaderContent}</div>
-      <div class="home-desktop-header">${horizontalHeaderContent}</div>`;
+      <div class="min-[550px]:hidden">${verticalHeaderContent}</div>
+      <div class="hidden min-[550px]:block">${horizontalHeaderContent}</div>`;
   }
 
   const topRightActionsHtml = `<div class="fixed top-4 right-4 z-50 flex items-center gap-3">${themeIconHtml}${adminIconHtml}</div>`;
@@ -406,17 +406,14 @@ export async function onRequest(context) {
   }
 
   // 背景层 HTML
-  const wallpaperUrl = resolvedWallpaperUrl.startsWith('/')
-    ? new URL(resolvedWallpaperUrl, request.url).href
-    : resolvedWallpaperUrl;
-  const safeWallpaperUrl = sanitizeUrl(wallpaperUrl);
+  const safeWallpaperUrl = sanitizeUrl(resolvedWallpaperUrl);
   const defaultBgColor = '#fdf8f3';
   let bgLayerHtml = '';
   if (safeWallpaperUrl) {
     const blurStyle = S.layout_enable_bg_blur ? `filter: blur(${S.layout_bg_blur_intensity}px); transform: scale(1.02);` : '';
-    bgLayerHtml = `<div id="fixed-background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; background-color: ${defaultBgColor};"><img src="${safeWallpaperUrl}" alt="" fetchpriority="high" onerror="this.style.display='none'" style="display: block; width: 100%; height: 100%; object-fit: cover; ${blurStyle}" /></div>`;
+    bgLayerHtml = `<div id="fixed-background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -9999; pointer-events: none; overflow: hidden;"><img src="${safeWallpaperUrl}" alt="" fetchpriority="high" style="width: 100%; height: 100%; object-fit: cover; ${blurStyle}" /></div>`;
   } else {
-    bgLayerHtml = `<div id="fixed-background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; background-color: ${defaultBgColor};"></div>`;
+    bgLayerHtml = `<div id="fixed-background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -9999; pointer-events: none; background-color: ${defaultBgColor};"></div>`;
   }
 
   // 壁纸预加载
@@ -429,8 +426,7 @@ export async function onRequest(context) {
     html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
     #app-scroll { width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
     body { background-color: transparent !important; }
-    #fixed-background { z-index: 0 !important; transition: background-color 0.3s ease, filter 0.3s ease; }
-    #app-scroll, #app-scroll > .main-content { position: relative; z-index: 1; }
+    #fixed-background { transition: background-color 0.3s ease, filter 0.3s ease; }
     @supports (-webkit-touch-callout: none) { #fixed-background { height: -webkit-fill-available; } }
   </style>`;
 
