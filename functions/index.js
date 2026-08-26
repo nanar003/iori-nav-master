@@ -224,14 +224,7 @@ export async function onRequest(context) {
   const { headerClass, containerClass, titleColorClass, subTextColorClass, searchInputClass, searchIconClass } = themeClasses;
 
   // === 9. 生成菜单 HTML ===
-  const allLinkActive = !catalogExists;
-  const allLinkClass = allLinkActive ? 'active' : 'inactive';
-  const allLinkActiveMarker = allLinkActive ? 'nav-item-active' : '';
-  const horizontalAllLink = `
-    <div class="menu-item-wrapper relative inline-block text-left">
-      <a href="?catalog=all" class="nav-btn ${allLinkClass} ${allLinkActiveMarker}">全部</a>
-    </div>`;
-  const horizontalCatalogMarkup = horizontalAllLink + renderHorizontalMenu(rootCategories, currentCatalogName);
+  const horizontalCatalogMarkup = renderHorizontalMenu(rootCategories, currentCatalogName);
   const catalogLinkMarkup = renderVerticalMenu(rootCategories, currentCatalogName, isCustomWallpaper);
 
   // === 10. 生成站点卡片 HTML ===
