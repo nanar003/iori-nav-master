@@ -180,7 +180,7 @@
         const input = icon.closest('.home-search-field')?.querySelector('.search-input-target');
         if (!input) return;
         if (currentSearchEngine === 'local') {
-          input.focus();
+          applyLocalSearchFilter(input.value);
           return;
         }
         submitSearch(input.value);
