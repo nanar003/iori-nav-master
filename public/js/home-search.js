@@ -83,6 +83,21 @@
       });
     }
 
+    function submitSearch(query) {
+      const keyword = String(query || '').trim();
+      if (!keyword) return;
+
+      const encodedKeyword = encodeURIComponent(keyword);
+      const searchUrls = {
+        google: `https://www.google.com/search?q=${encodedKeyword}`,
+        baidu: `https://www.baidu.com/s?wd=${encodedKeyword}`,
+        github: `https://github.com/search?q=${encodedKeyword}`,
+        perplexity: `https://www.perplexity.ai/search?q=${encodedKeyword}`,
+      };
+      const url = searchUrls[currentSearchEngine];
+      if (url) window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
     function updateHeading(keyword, activeCatalog, count) {
       const heading = document.querySelector('[data-role="list-heading"]');
       if (!heading) return;
@@ -155,18 +170,20 @@
       input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && currentSearchEngine !== 'local') {
           e.preventDefault();
-          const query = this.value.trim();
-          if (query) {
-            let url = '';
-            switch (currentSearchEngine) {
-              case 'google': url = `https://www.google.com/search?q=${encodeURIComponent(query)}`; break;
-              case 'baidu': url = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`; break;
-              case 'github': url = `https://github.com/search?q=${encodeURIComponent(query)}`; break;
-              case 'perplexity': url = `https://www.perplexity.ai/search?q=${encodeURIComponent(query)}`; break;
-            }
-            if (url) window.open(url, '_blank');
-          }
+          submitSearch(this.value);
         }
+      });
+    });
+
+    document.querySelectorAll('.home-search-icon').forEach(icon => {
+      icon.addEventListener('click', () => {
+        const input = icon.closest('.home-search-field')?.querySelector('.search-input-target');
+        if (!input) return;
+        if (currentSearchEngine === 'local') {
+          input.focus();
+          return;
+        }
+        submitSearch(input.value);
       });
     });
 
