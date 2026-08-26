@@ -705,7 +705,7 @@ html.dark body.custom-wallpaper .site-card.style-3.frosted-glass-effect:hover {
   min-height: 1.5em;
   padding: 0 0.25rem;
   overflow: hidden;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.05;
   text-align: center;
@@ -748,8 +748,9 @@ html.dark .site-card.style-3:not(.frosted-glass-effect) .site-title {
 }
 
 @media (max-width: 767px) {
-  #sitesGrid.mobile-card-style3 {
-    gap: 0.625rem;
+  .site-card.style-3 {
+    min-height: 100px;
+    height: 100px !important;
   }
 
   .site-card.style-3 {
@@ -1691,7 +1692,7 @@ body .search-engine-option.active {
 }
 
 .line-clamp-2 {
-  display: -webkit-box !important; -webkit-line-clamp: 2 !important; -webkit-box-orient: vertical !important;
+  display: -webkit-box !important; -webkit-line-clamp: 2 !important; line-clamp: 2 !important; -webkit-box-orient: vertical !important;
   overflow: hidden !important; text-overflow: ellipsis !important; word-break: break-word;
 }
 
@@ -1888,6 +1889,7 @@ html:not(.dark) .dropdown-item.active {
 #hitokoto {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
