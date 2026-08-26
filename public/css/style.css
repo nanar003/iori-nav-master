@@ -307,6 +307,27 @@ header {
   color: #d97706;
 }
 
+#themeToggleBtn[data-theme="light"] #themeIconSun {
+  display: block;
+}
+
+#themeToggleBtn[data-theme="light"] #themeIconMoon,
+#themeToggleBtn[data-theme="dark"] #themeIconSun {
+  display: none;
+}
+
+#themeToggleBtn[data-theme="dark"] #themeIconMoon {
+  display: block;
+}
+
+#themeToggleBtn[data-theme="light"] {
+  color: #fbbf24;
+}
+
+#themeToggleBtn[data-theme="dark"] {
+  color: #bfdbfe;
+}
+
 .admin-action-icon:hover {
   color: #bfdbfe;
 }
