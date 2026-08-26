@@ -406,7 +406,10 @@ export async function onRequest(context) {
   }
 
   // 背景层 HTML
-  const safeWallpaperUrl = sanitizeUrl(resolvedWallpaperUrl);
+  const wallpaperUrl = resolvedWallpaperUrl.startsWith('/')
+    ? new URL(resolvedWallpaperUrl, request.url).href
+    : resolvedWallpaperUrl;
+  const safeWallpaperUrl = sanitizeUrl(wallpaperUrl);
   const defaultBgColor = '#fdf8f3';
   let bgLayerHtml = '';
   if (safeWallpaperUrl) {
