@@ -140,6 +140,15 @@
   background: #6b7280;
 }
 
+.home-search-icon {
+  z-index: 2;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
 /* ========================================= */
 /*  Dark Mode & Wallpaper Optimizations      */
 /* ========================================= */
