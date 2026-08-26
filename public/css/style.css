@@ -9,16 +9,22 @@
   display: none;
 }
 
-/* 550px 断点布局兜底：避免移动版和桌面版头部同时显示 */
-@media (max-width: 549px) {
-  .min-\[550px\]\:block {
-    display: none !important;
-  }
+/* 550px 断点布局：移动版和桌面版头部只显示一套 */
+.home-mobile-header {
+  display: block;
+}
+
+.home-desktop-header {
+  display: none;
 }
 
 @media (min-width: 550px) {
-  .min-\[550px\]\:hidden {
+  .home-mobile-header {
     display: none !important;
+  }
+
+  .home-desktop-header {
+    display: block !important;
   }
 }
 

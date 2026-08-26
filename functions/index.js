@@ -374,8 +374,8 @@ export async function onRequest(context) {
     }
 
     headerContent = `
-      <div class="min-[550px]:hidden">${verticalHeaderContent}</div>
-      <div class="hidden min-[550px]:block">${horizontalHeaderContent}</div>`;
+      <div class="home-mobile-header">${verticalHeaderContent}</div>
+      <div class="home-desktop-header">${horizontalHeaderContent}</div>`;
   }
 
   const topRightActionsHtml = `<div class="fixed top-4 right-4 z-50 flex items-center gap-3">${themeIconHtml}${adminIconHtml}</div>`;
