@@ -574,8 +574,8 @@ body:not(.app-ready) #sidebar a[href="?catalog=all"] {
 
 /* 风格三：紧凑导航块；毛玻璃开=玻璃块，关=与风格一二相同的实色白底 */
 .site-card.style-3 {
-  min-height: 85px;
-  height: 85px !important;
+  min-height: 110px;
+  height: 110px !important;
   border-radius: var(--card-radius) !important;
 }
 
@@ -672,23 +672,26 @@ html.dark body.custom-wallpaper .site-card.style-3.frosted-glass-effect:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
   /* 图标与下方标题间距：原先四边 4px，现改为下方 8px */
-  margin: 0 auto 8px;
+  margin: 0 auto 10px;
   opacity: 1;
   flex-shrink: 0;
 }
 
 .site-card.style-3 .site-icon img,
 .site-card.style-3 .site-icon div {
-  width: 25px !important;
-  height: 25px !important;
+  width: 40px !important;
+  height: 40px !important;
   margin: 0 auto;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  line-height: 25px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 40px;
   object-fit: contain;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .site-card.style-3 .flex-1 {
@@ -715,6 +718,7 @@ html.dark body.custom-wallpaper .site-card.style-3.frosted-glass-effect:hover {
   transform: none !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 /* 默认色不设 !important，以便后台 card_title_color（含 !important）可覆盖 */
