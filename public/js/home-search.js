@@ -175,16 +175,18 @@
       });
     });
 
-    document.querySelectorAll('.home-search-icon').forEach(icon => {
-      icon.addEventListener('click', () => {
-        const input = icon.closest('.home-search-field')?.querySelector('.search-input-target');
-        if (!input) return;
-        if (currentSearchEngine === 'local') {
-          applyLocalSearchFilter(input.value);
-          return;
-        }
-        submitSearch(input.value);
-      });
+    document.addEventListener('click', (event) => {
+      const icon = event.target.closest?.('.home-search-icon');
+      if (!icon) return;
+
+      event.preventDefault();
+      const input = icon.closest('.home-search-field')?.querySelector('.search-input-target');
+      if (!input) return;
+      if (currentSearchEngine === 'local') {
+        applyLocalSearchFilter(input.value);
+        return;
+      }
+      submitSearch(input.value);
     });
 
     updateHeading();
