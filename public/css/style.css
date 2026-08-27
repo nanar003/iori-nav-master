@@ -2075,6 +2075,12 @@ html:not(.dark) .dropdown-item.active {
 
 /* 手机端导航卡片 Logo：覆盖动态重绘时可能带回的默认灰色背景 */
 @media (max-width: 767px) {
+  #sitesGrid .site-icon img {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
   #sitesGrid.mobile-card-style3 .site-icon img,
   #sitesGrid.mobile-card-style3 .site-icon div {
     background: transparent !important;
