@@ -142,7 +142,8 @@
 
     syncThemeButton();
 
-    themeToggleBtn.addEventListener('click', () => {
+    themeToggleBtn.addEventListener('click', (event) => {
+      event.preventDefault();
       const isDark = document.documentElement.classList.contains('dark');
       const nextState = isDark ? 'light' : 'dark';
 

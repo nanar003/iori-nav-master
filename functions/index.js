@@ -353,7 +353,7 @@ export async function onRequest(context) {
   let mobileToggleVisibilityClass = 'lg:hidden';
   let adminIconHtml = '';
   const themeIconHtml = `
-    <button id="themeToggleBtn" class="top-action-icon theme-action-icon" title="切换主题">
+    <button type="button" id="themeToggleBtn" class="top-action-icon theme-action-icon" title="切换主题">
       <svg id="themeIconSun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
       <svg id="themeIconMoon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
     </button>`;
@@ -411,9 +411,9 @@ export async function onRequest(context) {
   let bgLayerHtml = '';
   if (safeWallpaperUrl) {
     const blurStyle = S.layout_enable_bg_blur ? `filter: blur(${S.layout_bg_blur_intensity}px); transform: scale(1.02);` : '';
-    bgLayerHtml = `<div id="fixed-background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -9999; pointer-events: none; overflow: hidden;"><img src="${safeWallpaperUrl}" alt="" fetchpriority="high" style="width: 100%; height: 100%; object-fit: cover; ${blurStyle}" /></div>`;
+    bgLayerHtml = `<div id="fixed-background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; background-color: ${defaultBgColor};"><img src="${safeWallpaperUrl}" alt="" fetchpriority="high" onerror="this.style.display='none'" style="display: block; width: 100%; height: 100%; object-fit: cover; ${blurStyle}" /></div>`;
   } else {
-    bgLayerHtml = `<div id="fixed-background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -9999; pointer-events: none; background-color: ${defaultBgColor};"></div>`;
+    bgLayerHtml = `<div id="fixed-background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; background-color: ${defaultBgColor};"></div>`;
   }
 
   // 壁纸预加载
@@ -426,7 +426,8 @@ export async function onRequest(context) {
     html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
     #app-scroll { width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
     body { background-color: transparent !important; }
-    #fixed-background { transition: background-color 0.3s ease, filter 0.3s ease; }
+    #fixed-background { z-index: 0 !important; transition: background-color 0.3s ease, filter 0.3s ease; }
+    #app-scroll, #app-scroll > .main-content { position: relative; z-index: 1; }
     @supports (-webkit-touch-callout: none) { #fixed-background { height: -webkit-fill-available; } }
   </style>`;
 
