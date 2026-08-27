@@ -158,18 +158,7 @@
 /*  Dark Mode & Wallpaper Optimizations      */
 /* ========================================= */
 
-/* 1. 背景压暗 (仅在有壁纸且夜间模式时) */
-html.dark body.custom-wallpaper::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* 60% 黑色遮罩 */
-    z-index: -1;
-    pointer-events: none;
-    transition: background-color 0.3s ease;
-}
-
-/* 2. 侧边栏深色玻璃化 */
+/* 1. 侧边栏深色玻璃化 */
 html.dark body.custom-wallpaper .sidebar {
     background-color: rgba(17, 24, 39, 0.85) !important;
     backdrop-filter: blur(12px);

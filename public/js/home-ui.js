@@ -156,20 +156,7 @@
         syncThemeButton();
       };
 
-      if (!document.startViewTransition) {
-        updateTheme();
-        return;
-      }
-
-      document.documentElement.classList.add('theme-animating');
-
-      const transition = document.startViewTransition(() => {
-        updateTheme();
-      });
-
-      transition.finished.finally(() => {
-        document.documentElement.classList.remove('theme-animating');
-      });
+      updateTheme();
     });
   }
 
