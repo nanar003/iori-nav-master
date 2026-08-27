@@ -25,7 +25,7 @@
       copyButtonBaseClass: 'copy-btn relative flex items-center px-2 py-1 rounded-full text-xs font-medium transition-colors',
       copyButtonEnabledClass: 'bg-accent-100 text-accent-700 hover:bg-accent-200 dark:bg-accent-900/30 dark:text-accent-300 dark:hover:bg-accent-900/50',
       copyButtonDisabledClass: 'bg-gray-200 text-gray-400 cursor-not-allowed dark:bg-gray-700 dark:text-gray-500',
-      logoClass: 'w-10 h-10 rounded-lg object-cover bg-gray-100 dark:bg-gray-700',
+      logoClass: 'w-10 h-10 rounded-lg object-cover',
       siteIconClass: 'site-icon flex-shrink-0 mr-4 transition-all duration-300',
     };
     const cardConfigSets = window.IORI_CARD_CONFIGS || {
