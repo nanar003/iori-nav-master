@@ -312,6 +312,27 @@ header {
   color: #d97706;
 }
 
+#themeToggleBtn[data-theme="light"] #themeIconSun {
+  display: block;
+}
+
+#themeToggleBtn[data-theme="light"] #themeIconMoon,
+#themeToggleBtn[data-theme="dark"] #themeIconSun {
+  display: none;
+}
+
+#themeToggleBtn[data-theme="dark"] #themeIconMoon {
+  display: block;
+}
+
+#themeToggleBtn[data-theme="light"] {
+  color: #fbbf24;
+}
+
+#themeToggleBtn[data-theme="dark"] {
+  color: #bfdbfe;
+}
+
 .admin-action-icon:hover {
   color: #bfdbfe;
 }
@@ -1127,7 +1148,7 @@ body .search-engine-option.active {
   }
 
   body.desktop-page-style3.custom-wallpaper #fixed-background img {
-    opacity: 0.8;
+    opacity: 1;
   }
 
   body.desktop-page-style3 header {
@@ -1403,7 +1424,7 @@ body .search-engine-option.active {
   }
 
   body.mobile-page-style3.custom-wallpaper #fixed-background img {
-    opacity: 0.8;
+    opacity: 1;
   }
 
   body.mobile-page-style3 header {

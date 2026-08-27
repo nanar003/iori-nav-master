@@ -134,6 +134,14 @@
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     if (!themeToggleBtn) return;
 
+    const syncThemeButton = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      themeToggleBtn.dataset.theme = isDark ? 'dark' : 'light';
+      themeToggleBtn.setAttribute('aria-label', isDark ? '切换到浅色模式' : '切换到深色模式');
+    };
+
+    syncThemeButton();
+
     themeToggleBtn.addEventListener('click', () => {
       const isDark = document.documentElement.classList.contains('dark');
       const nextState = isDark ? 'light' : 'dark';
@@ -145,6 +153,7 @@
           document.documentElement.classList.remove('dark');
         }
         localStorage.setItem('theme', nextState);
+        syncThemeButton();
       };
 
       if (!document.startViewTransition) {
