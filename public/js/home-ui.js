@@ -138,6 +138,11 @@
       const isDark = document.documentElement.classList.contains('dark');
       themeToggleBtn.dataset.theme = isDark ? 'dark' : 'light';
       themeToggleBtn.setAttribute('aria-label', isDark ? '切换到浅色模式' : '切换到深色模式');
+
+      const wallpaper = document.getElementById('fixed-background');
+      if (wallpaper) {
+        wallpaper.style.filter = isDark ? 'brightness(0.55)' : 'brightness(1.08) saturate(1.08)';
+      }
     };
 
     syncThemeButton();
