@@ -157,7 +157,22 @@
         syncThemeButton();
       };
 
-      updateTheme();
+      if (!document.startViewTransition) {
+        updateTheme();
+        return;
+      }
+
+      document.documentElement.classList.add('theme-animating');
+
+      try {
+        const transition = document.startViewTransition(updateTheme);
+        transition.finished.finally(() => {
+          document.documentElement.classList.remove('theme-animating');
+        });
+      } catch (error) {
+        document.documentElement.classList.remove('theme-animating');
+        updateTheme();
+      }
     });
   }
 

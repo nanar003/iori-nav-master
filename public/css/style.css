@@ -158,7 +158,12 @@
 /*  Dark Mode & Wallpaper Optimizations      */
 /* ========================================= */
 
-/* 1. 侧边栏深色玻璃化 */
+/* 夜间壁纸压暗，配合主题切换动画产生明显的明暗变化 */
+html.dark body.custom-wallpaper #fixed-background {
+  filter: brightness(0.55);
+}
+
+/* 侧边栏深色玻璃化 */
 html.dark body.custom-wallpaper .sidebar {
     background-color: rgba(17, 24, 39, 0.85) !important;
     backdrop-filter: blur(12px);
