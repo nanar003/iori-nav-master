@@ -91,7 +91,7 @@ export async function onRequest(context) {
       const response = new Response(cachedHtml, {
         headers: {
           'Content-Type': 'text/html; charset=utf-8',
-          'Cache-Control': isAuthenticated ? 'private, no-store, max-age=0' : 'public, max-age=0, must-revalidate',
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
           'X-Cache': 'HIT',
         }
       });
@@ -589,7 +589,7 @@ export async function onRequest(context) {
   const response = new Response(html, {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
-      'Cache-Control': isAuthenticated ? 'private, no-store, max-age=0' : 'public, max-age=0, must-revalidate',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
     }
   });
 
