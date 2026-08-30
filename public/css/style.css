@@ -802,20 +802,15 @@ html.dark .site-card.style-3:not(.frosted-glass-effect) .site-title {
     gap: 15px;
   }
 }
-
-/* PC 风格三在半屏窗口中保持原来的紧凑五列，宽屏再展开为六列 */
-@media (min-width: 550px) {
+@media (min-width: 768px) {
   #sitesGrid.desktop-card-style3 {
-    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    width: 100%;
+    max-width: 55rem;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 15px;
   }
 }
-
-@media (min-width: 1200px) {
-  #sitesGrid.desktop-card-style3 {
-    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
-  }
-}
-
 @media (max-width: 767px) {
   .site-card.style-3 {
     min-height: 85px;
